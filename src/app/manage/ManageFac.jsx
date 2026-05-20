@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import Edit from "./Edit";
+
 import DeleteManaage from "./DeleteManaage";
-// import DeleteBtn from "./DeleteBtn";
+import Edit from "./Edit";
+
 
 const ManageFac = ({ data }) => {
   return (

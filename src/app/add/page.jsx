@@ -41,10 +41,10 @@ const AddFacility = () => {
   };
 
   return (
-    <div className="flex min-h-screen animate-accordion-down animate__animated items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-black p-6">
+    <div className="flex min-h-screen  items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-black p-6">
 
       <Form
-        className="w-full max-w-3xl rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md"
+        className="w-full max-w-3xl animate-accordion-down animate__animated rounded-2xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-md"
         validationBehavior="native"
         onSubmit={onSubmit}
       >

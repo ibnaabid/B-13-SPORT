@@ -63,7 +63,7 @@ const Loginpage = () => {
             </TextField>
 
             <TextField isRequired name="password" type="password" className="w-full">
-              <Label className="text-gray-300 text-sm font-medium mb-1.5 block">Password</Label>
+            <Label className="text-gray-300 text-sm font-medium mb-1.5 block">Password</Label>
               <Input
                 placeholder="••••••••"
                 className="bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-gray-500 h-11"
@@ -85,7 +85,7 @@ const Loginpage = () => {
           
           className="w-full mt-6 btn bg-amber-200  text-slate-950 font-bold h-11 rounded-xl hover:scale-[1.01] transition-all duration-200">Google</Button>
 
-          <p className="text-center text-sm text-gray-400 mt-6">
+         <p className="text-center text-sm text-gray-400 mt-6">
             Don&apos;t have an account?{" "}
             <Link href="/signup" className="text-emerald-400 hover:underline font-semibold">
               Register here
