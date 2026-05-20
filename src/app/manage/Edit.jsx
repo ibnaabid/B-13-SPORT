@@ -48,6 +48,11 @@ const Edit = ({ data }) => {
                     <Input defaultValue={data?.price} placeholder="Price per hour" />
                   </TextField>
 
+                      <TextField className="w-full" name="image" type="url">
+                    <Label>Image Url</Label>
+                    <Input defaultValue={data?.imageUrl} placeholder="https//:unplash///" />
+                  </TextField>
+
                   <TextField className="w-full" name="description" type="text">
                     <Label>Description</Label>
                     <Input defaultValue={data?.description} placeholder="Description" />
