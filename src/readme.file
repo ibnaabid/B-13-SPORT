@@ -1,0 +1,33 @@
+# Sports Booking System
+
+## Purpose
+A full-stack sports facility booking platform where users can search, filter, and book sports facilities.
+
+## Live URL
+https://your-live-site.vercel.app
+
+## Features
+- User authentication (JWT)
+- Facility search system
+- Sport type filtering
+- Booking system
+- Protected routes
+- Responsive design
+- MongoDB integration
+
+## NPM Packages Used
+
+### Client
+- next
+- react
+- tailwindcss
+- axios
+- react-hot-toast
+
+### Server
+- express
+- mongodb
+- cors
+- jsonwebtoken
+- cookie-parser
+- dotenv
