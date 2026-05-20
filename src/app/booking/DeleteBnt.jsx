@@ -1,6 +1,6 @@
 "use client"
 import {AlertDialog, Button} from "@heroui/react";
-import { router } from "better-auth/api";
+
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -16,14 +16,6 @@ const DeleteBnt = ({data}) => {
         })
         const allBookingDel = await res.json()
        
-     
-       
-        if(!allBookingDel){
-              <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-white">
-        <h2 className="text-3xl font-bold text-cyan-400 mb-2">All Booking Facilities</h2>
-        <p className="text-gray-400">You delete booked !</p>
-      </div>
-        }
            toast.success("booking Canceled successfully !")
            router.refresh()
 

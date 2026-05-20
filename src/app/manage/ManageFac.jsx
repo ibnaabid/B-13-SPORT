@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Edit from "./Edit";
+import DeleteManaage from "./DeleteManaage";
 // import DeleteBtn from "./DeleteBtn";
 
 const ManageFac = ({ data }) => {
@@ -29,7 +30,8 @@ const ManageFac = ({ data }) => {
         <div className="flex gap-3 pt-1">
 
         <Edit data={data}></Edit>
-          <p className="btn btn-soft btn-error" >Delete</p>
+        < DeleteManaage data={data} ></DeleteManaage>
+      
          
         </div>
       </div>

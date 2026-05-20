@@ -77,7 +77,7 @@ const FacilityBook = async () => {
                 <div className="mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"></div>
               </div>
 
-           <h2 className="border border-amber-50 bg-amber-200 font-bold ">pending</h2>
+           <h2 className="border border-amber-50 rounded-3xl text-center text-red-500 bg-amber-200 font-bold ">pending</h2>
               <div className="text-sm text-gray-400 space-y-1">
                 <p><span className="text-gray-500">Booked by:</span> {data?.userName}</p>
                 <p><span className="text-gray-500">Email:</span> {data?.userEmail}</p>
