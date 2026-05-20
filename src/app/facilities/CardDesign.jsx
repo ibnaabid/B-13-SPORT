@@ -1,10 +1,39 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 
 
 const CardDesign = ({data}) => {
+    const [search, setSearch] = useState("");
+const [sport, setSport] = useState("");
+
+const loadFacilities = async () => {
+
+  const res = await fetch(
+    `http://localhost:5000/facilities?search=${search}&sport=${sport}`
+  );
+
+  const data = await res.json();
+  console.log(data);
+};
     return (
         <div>  
+            <input
+  type="text"
+  placeholder="Search facility"
+  onChange={(e) => setSearch(e.target.value)}
+/>
+
+<button onClick={loadFacilities}>
+  Search
+</button>
+
+<select onChange={(e) => setSport(e.target.value)}>
+  <option value="">All</option>
+  <option value="Football">Football</option>
+  <option value="Cricket">Cricket</option>
+  <option value="Badminton">Badminton</option>
+</select>
          <div>
            
             <div className="card animate__animated animate__fadeInBottomLeft bg-base-100 w-96 shadow-sm">

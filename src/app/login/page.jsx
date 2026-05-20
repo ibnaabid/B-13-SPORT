@@ -79,7 +79,7 @@ const Loginpage = () => {
             Sign In
           </Button>
 
-          <p className="text-blue-300 text-center font-bold text-xl">Or Login With?</p>
+          <p className="text-blue-400 text-center font-bold text-xl">Or Login With?</p>
           <Button
           onClick={googlehandler}
           
