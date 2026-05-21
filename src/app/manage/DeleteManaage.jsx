@@ -4,17 +4,24 @@ import {AlertDialog, Button} from "@heroui/react";
 
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { authClient } from "../lib/auth-client";
 
 const DeleteManaage = ({data}) => {
     console.log(data)
 
      const router = useRouter()
+
     
 
 
     const deleteHandler=async()=>{
+
+      
+     const {data:token}= authClient.token()
+     
         const res= await fetch (`http://localhost:5000/manage/${data?._id}`,{
-            method:"DELETE"
+            method:"DELETE",
+            headers:{ authorization: `Bearer ${token}`}
         })
         const allBookingDel = await res.json()
        

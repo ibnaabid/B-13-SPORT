@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { authClient } from "../lib/auth-client";
 
 const sports = ["football", "cricket", "Badminton", "Basketball","river", "Tennis"];
 
@@ -11,11 +12,14 @@ const CardDesign = () => {
   const [sport, setSport] = useState("");
   const [facilities, setFacilities] = useState([]);
 
+  const {data:token}= authClient.token()
+  console.log(token)
+
   const loadFacilities = async () => {
     const res = await fetch(
       `http://localhost:5000/facilities?search=${search}&sport=${sport}`,
       {
-        headers: { authorization: "logged in" }, 
+        headers: { authorization: `Bearer ${token}`}, 
       }
     );
     const datas = await res.json();

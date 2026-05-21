@@ -3,17 +3,26 @@ import {AlertDialog, Button} from "@heroui/react";
 
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { authClient } from "../lib/auth-client";
 
 const DeleteBnt = ({data}) => {
 
     const router = useRouter()
-    
 
+ 
+    
+   
 
     const deleteHandler=async()=>{
+         const {data:token}= authClient.token();
+    console.log(token)
         const res= await fetch (`http://localhost:5000/booking/${data?._id}`,{
-            method:"DELETE"
+            method:"DELETE",
+            headers:{
+               authorization:`Bearer ${token}`
+            }
         })
+
         const allBookingDel = await res.json()
        
            toast.success("booking Canceled successfully !")

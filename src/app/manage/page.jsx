@@ -1,9 +1,16 @@
+import { auth } from "../lib/auth";
 import ManageFac from "./ManageFac";
 
 const ManageFacility = async() => {
 
+
+    const token = await auth.api.getToken();
+    console.log(token)
       const res = await fetch ("http://localhost:5000/add",{
-        cache:"no-store"
+        cache:"no-store",
+        headers:{
+             authorization:`Bearer ${token}`
+        }
     })
     const data = await res.json()
     

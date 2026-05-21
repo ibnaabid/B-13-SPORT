@@ -13,12 +13,18 @@ import {
   TextField,
 } from "@heroui/react";
 import toast from "react-hot-toast";
+import { authClient } from "../lib/auth-client";
 
 const AddFacility = () => {
   const router = useRouter();
 
+
   const onSubmit = async (e) => {
     e.preventDefault();
+    
+
+  const {data:token}= await authClient.token();
+  console.onSubmit(token)
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -26,7 +32,8 @@ const AddFacility = () => {
     const res= await fetch("http://localhost:5000/add",{
         method:"POST",
         headers:{
-            "content-type":"application/json"
+            "content-type":"application/json",
+             authorization:`Bearer ${token}`
         },
         body: JSON.stringify(data)
     })

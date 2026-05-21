@@ -2,9 +2,13 @@
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { authClient } from "../lib/auth-client";
 
 const Edit = ({ data }) => {
   const router = useRouter();
+
+  const {data:token}= authClient.token();
+  console.log(token)
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +17,9 @@ const Edit = ({ data }) => {
 
     const res = await fetch(`http://localhost:5000/manage/${data?._id}`, {
       method: "PATCH",
-      headers: { "content-type": "application/json" },
+      headers: { "content-type": "application/json",
+        authorization:`Bearer ${token}`
+       },
       body: JSON.stringify(updatedData),
     });
 
