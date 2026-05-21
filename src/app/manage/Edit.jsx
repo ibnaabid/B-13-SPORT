@@ -10,6 +10,7 @@ const EditForm = ({ data }) => {
  
   const onSubmit = async (e) => {
    
+  const { data: token } = authClient.useToken();
 
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -18,6 +19,7 @@ const EditForm = ({ data }) => {
     const res = await fetch(`http://localhost:5000/manage/${data?._id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json",
+        authorization: `Bearer ${token?.token}`
      
        },
       body: JSON.stringify(updatedData),

@@ -7,9 +7,8 @@ import toast from "react-hot-toast";
 const BookCard = ({ data }) => {
  
 
-  const { data: session } = authClient.useSession();
-  const userInfo = session?.user;
-  console.log(userInfo)
+  const { data: token } = authClient.useToken();
+ 
 
 
   const BookingHandler = async (e) => {
@@ -35,6 +34,7 @@ const BookCard = ({ data }) => {
       
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${token?.token}`
        
       },
       body: JSON.stringify(booking),
