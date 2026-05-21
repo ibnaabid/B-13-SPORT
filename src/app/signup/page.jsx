@@ -13,8 +13,9 @@ import {
   TextField,
 } from "@heroui/react";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 import { authClient } from "../lib/auth-client";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const onSubmit = async (e) => {
