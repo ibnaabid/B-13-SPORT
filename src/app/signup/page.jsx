@@ -69,7 +69,7 @@ const SignUp = () => {
             Create Account
           </Fieldset.Legend>
 
-          <Description className="text-gray-400 text-center mt-2">
+          <Description className="text-gray-500 text-center mt-2">
             Sign up to get started
           </Description>
 
