@@ -8,14 +8,15 @@ import { headers } from "next/headers";
 const DynamicView = async ({ params }) => {
   const { id } = await params;
 
-  const token = await auth.api.getToken({
+  const {token} = await auth.api.getToken({
     headers: await headers(),
   });
 
+  console.log(token)
   const res = await fetch(`http://localhost:5000/add/${id}`, {
     cache: "no-store",
     headers:{
-      authorization: `Bearer ${token?.token}`
+      authorization: `Bearer ${token}`
     }
    
   });

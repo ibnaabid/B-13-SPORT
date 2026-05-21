@@ -1,6 +1,6 @@
 import Image from "next/image";
 import DeleteManaage from "./DeleteManaage";
-import Edit from "./Edit";
+
 import EditForm from "./Edit";
 
 const ManageFac = ({ data }) => {

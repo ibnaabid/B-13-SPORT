@@ -16,8 +16,10 @@ const DeleteManaage = ({data}) => {
 
     const deleteHandler=async()=>{
 
-    
-      const { data: token } = authClient.useToken();
+      
+    const {data:token}= await authClient.token();
+      console.log(token)
+
       
 
         const res= await fetch (`http://localhost:5000/manage/${data?._id}`,{

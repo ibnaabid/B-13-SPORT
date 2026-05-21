@@ -9,26 +9,39 @@ const EditForm = ({ data }) => {
 
  
   const onSubmit = async (e) => {
-   
-  const { data: token } = authClient.useToken();
+  e.preventDefault();
 
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const updatedData = Object.fromEntries(formData.entries());
+  // const { data: token } = authClient.token();
 
-    const res = await fetch(`http://localhost:5000/manage/${data?._id}`, {
-      method: "PATCH",
-      headers: { "content-type": "application/json",
-        authorization: `Bearer ${token?.token}`
-     
-       },
-      body: JSON.stringify(updatedData),
-    });
+  // console.log("TOKEN:", token);
 
-    if (res.ok) {
-      toast.success("Updated successfully!");
-      router.refresh(); 
-    }
+  // if (!token) {
+  //   toast.error("No token found. Please login again.");
+  //   return;
+  // }
+
+  const formData = new FormData(e.currentTarget);
+  const updatedData = Object.fromEntries(formData.entries());
+
+  const res = await fetch(`http://localhost:5000/manage/${data?._id}`, {
+    method: "PATCH",
+    headers: {
+      "content-type": "application/json",
+      // authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(updatedData),
+  });
+
+  const result = await res.json();
+
+  if (res.ok) {
+    toast.success("Updated successfully!");
+    router.refresh();
+  } else {
+    toast.error("Update failed");
+    console.log(result);
+  }
+
   };
 
   return (
@@ -51,10 +64,7 @@ const EditForm = ({ data }) => {
                     <Input defaultValue={data?.sportName} placeholder="Sport name" />
                   </TextField>
 
-                  <TextField className="w-full" name="price" type="number">
-                    <Label>Price</Label>
-                    <Input defaultValue={data?.price} placeholder="Price per hour" />
-                  </TextField>
+                 
 
                       <TextField className="w-full" name="image" type="url">
                     <Label>Image Url</Label>
