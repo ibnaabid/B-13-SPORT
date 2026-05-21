@@ -18,7 +18,7 @@ const Edit = ({ data }) => {
     const res = await fetch(`http://localhost:5000/manage/${data?._id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json",
-        authorization:`Bearer ${token}`
+        authorization:`Bearer ${token?.token}`
        },
       body: JSON.stringify(updatedData),
     });

@@ -22,7 +22,7 @@ const DynamicView = async ({ params }) => {
       cache:"no-store",
 
       headers:{
-        authorization:`Bearer ${token}`
+        authorization:`Bearer ${token?.token}`
       }
     }
   );

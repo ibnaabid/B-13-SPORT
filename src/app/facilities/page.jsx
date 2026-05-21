@@ -19,7 +19,7 @@ const CardDesign = () => {
     const res = await fetch(
       `http://localhost:5000/facilities?search=${search}&sport=${sport}`,
       {
-        headers: { authorization: `Bearer ${token}`}, 
+        headers: { authorization: `Bearer ${token?.token}`}, 
       }
     );
     const datas = await res.json();

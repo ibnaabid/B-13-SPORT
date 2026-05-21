@@ -31,10 +31,12 @@ const FacilityBook = async () => {
   const res = await fetch(`http://localhost:5000/booking/${userInfo?.id}`, {
     cache: "no-store",
     headers:{
-       authorization:`Bearer ${token}`
+       authorization:`Bearer ${token?.token}`
     }
   });
   const bookingList = await res.json();
+
+  console.log(bookingList)
 
   
   if (!bookingList || bookingList.length === 0) {
@@ -53,7 +55,7 @@ const FacilityBook = async () => {
       </h2>
 
       <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-2 items-start">
-        {bookingList.map((data) => (
+        {bookingList?.map((data) => (
           <div 
             key={data._id} 
             className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-lg"

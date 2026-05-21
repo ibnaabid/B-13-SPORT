@@ -9,7 +9,7 @@ const ManageFacility = async() => {
       const res = await fetch ("http://localhost:5000/add",{
         cache:"no-store",
         headers:{
-             authorization:`Bearer ${token}`
+             authorization:`Bearer ${token?.token}`
         }
     })
     const data = await res.json()

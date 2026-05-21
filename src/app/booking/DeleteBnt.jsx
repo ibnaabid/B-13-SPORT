@@ -16,10 +16,11 @@ const DeleteBnt = ({data}) => {
     const deleteHandler=async()=>{
          const {data:token}= authClient.token();
     console.log(token)
+
         const res= await fetch (`http://localhost:5000/booking/${data?._id}`,{
             method:"DELETE",
             headers:{
-               authorization:`Bearer ${token}`
+               authorization:`Bearer ${token?.token}`
             }
         })
 

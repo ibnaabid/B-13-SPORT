@@ -33,7 +33,7 @@ const AddFacility = () => {
         method:"POST",
         headers:{
             "content-type":"application/json",
-             authorization:`Bearer ${token}`
+             authorization:`Bearer ${token?.token}`
         },
         body: JSON.stringify(data)
     })
