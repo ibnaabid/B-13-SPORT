@@ -17,16 +17,16 @@ const DeleteManaage = ({data}) => {
     const deleteHandler=async()=>{
 
       
-    const {data:token}= await authClient.token();
-      console.log(token)
+    // const {data:token}= await authClient.token();
+    //   console.log(token)
 
       
 
         const res= await fetch (`${process.env.NEXT_PUBLIC_SERVER_URL}/manage/${data?._id}`,{
             method:"DELETE",
-            headers:{
-              authorization: `Bearer ${token?.token}`
-            }
+            // headers:{
+            //   authorization: `Bearer ${token?.token}`
+            // }
            
         })
         const allBookingDel = await res.json()
