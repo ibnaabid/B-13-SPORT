@@ -18,7 +18,7 @@ const FacilityBook = async () => {
     );
   }
 
-  const res = await fetch(`http://localhost:5000/booking/${userInfo?.id}`, {
+  const res = await fetch(`${process.env.SERVER_URL}/booking/${userInfo?.id}`, {
     cache: "no-store",
   });
 

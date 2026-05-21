@@ -13,7 +13,7 @@ const FacilitiesCard = () => {
     const loadFacilities = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/facilities?search=${search}&sport=${sport}`
+          `${process.env.SERVER_URL}/facilities?search=${search}&sport=${sport}`
         );
         const datas = await res.json();
         setFacilities(Array.isArray(datas) ? datas : []);

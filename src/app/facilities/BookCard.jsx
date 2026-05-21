@@ -35,7 +35,7 @@ const BookCard = ({ data }) => {
       price: data?.price,
     };
 
-    const res = await fetch("http://localhost:5000/booking", {
+    const res = await fetch(`{process.env.SERVER_URL}/booking`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

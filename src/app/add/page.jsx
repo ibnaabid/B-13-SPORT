@@ -29,7 +29,7 @@ const AddFacility = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
-    const res= await fetch("http://localhost:5000/add",{
+    const res= await fetch(`${process.env.SERVER_URL}/add`,{
         method:"POST",
         headers:{
             "content-type":"application/json",
