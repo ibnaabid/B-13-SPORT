@@ -11,11 +11,7 @@ const FacilityBook = async () => {
      headers: await headers(),
    });
 
-   const token = await auth.api.getToken({
-    headers: await headers()
-   })
-
-     console.log(token);
+  
 
   const userInfo = session?.user;
   console.log(userInfo)
@@ -30,9 +26,7 @@ const FacilityBook = async () => {
 
   const res = await fetch(`http://localhost:5000/booking/${userInfo?.id}`, {
     cache: "no-store",
-    headers:{
-       authorization:`Bearer ${token?.token}`
-    }
+    
   });
   const bookingList = await res.json();
 

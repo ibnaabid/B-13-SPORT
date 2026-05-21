@@ -1,8 +1,10 @@
 import Image from "next/image";
 import DeleteManaage from "./DeleteManaage";
 import Edit from "./Edit";
+import EditForm from "./Edit";
 
 const ManageFac = ({ data }) => {
+  console.log(data)
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-xl">
       
@@ -28,7 +30,7 @@ const ManageFac = ({ data }) => {
 
         {/* ACTIONS */}
         <div className="flex gap-3 pt-1">
-          <Edit data={data} />
+          <EditForm data={data} />
           <DeleteManaage data={data} />
         </div>
       </div>

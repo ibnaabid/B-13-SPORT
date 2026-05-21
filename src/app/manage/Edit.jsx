@@ -4,13 +4,13 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { authClient } from "../lib/auth-client";
 
-const Edit = ({ data }) => {
+const EditForm = ({ data }) => {
   const router = useRouter();
 
-  const {data:token}= authClient.token();
-  console.log(token)
-
+ 
   const onSubmit = async (e) => {
+   
+
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const updatedData = Object.fromEntries(formData.entries());
@@ -18,7 +18,7 @@ const Edit = ({ data }) => {
     const res = await fetch(`http://localhost:5000/manage/${data?._id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json",
-        authorization:`Bearer ${token?.token}`
+     
        },
       body: JSON.stringify(updatedData),
     });
@@ -79,4 +79,4 @@ const Edit = ({ data }) => {
   );
 };
 
-export default Edit;
+export default EditForm;

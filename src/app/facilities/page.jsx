@@ -1,34 +1,28 @@
 "use client";
-
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { authClient } from "../lib/auth-client";
+import CardDesign from "./CardDesign";
 
-const sports = ["football", "cricket", "Badminton", "Basketball","river", "Tennis"];
+const sports = ["football", "cricket", "Badminton", "Basketball", "river", "Tennis"];
 
-const CardDesign = () => {
+const FacilitiesCard = () => {
   const [search, setSearch] = useState("");
   const [sport, setSport] = useState("");
   const [facilities, setFacilities] = useState([]);
 
-  const {data:token}= authClient.token()
-  console.log(token)
-
-  const loadFacilities = async () => {
-    const res = await fetch(
-      `http://localhost:5000/facilities?search=${search}&sport=${sport}`,
-      {
-        headers: { authorization: `Bearer ${token?.token}`}, 
-      }
-    );
-    const datas = await res.json();
-    setFacilities(Array.isArray(datas) ? datas : []);
-  };
-
   useEffect(() => {
+    const loadFacilities = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/facilities?search=${search}&sport=${sport}`
+        );
+        const datas = await res.json();
+        setFacilities(Array.isArray(datas) ? datas : []);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     loadFacilities();
-  }, [search, sport]); 
+  }, [search, sport]);
 
   return (
     <div className="px-4 py-8 bg-gradient-to-br from-slate-950 via-slate-900 to-black min-h-screen">
@@ -79,47 +73,11 @@ const CardDesign = () => {
 
       {/* CARDS */}
       {facilities.length === 0 ? (
-        <div className="flex flex-col items-center justify-center mt-24 text-slate-500">
-          <svg className="w-12 h-12 mb-3 opacity-30" fill="none"
-            stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-              d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <p className="text-sm">No facilities found</p>
-        </div>
+        <p className="text-center text-slate-500 mt-24">No facilities found</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {facilities.map((data) => (
-            <div key={data._id} className="overflow-hidden rounded-2xl border 
-            border-white/10 bg-slate-900 hover:border-teal-500/30 transition-all group">
-
-              {/* IMAGE */}
-              <div className="relative h-[180px] w-full overflow-hidden">
-                <Image
-                  src={data.imageUrl}
-                  fill
-                  alt={data.sportName}
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <span className="absolute bottom-3 right-3 bg-teal-900 text-teal-300 
-                text-xs font-medium px-3 py-1 rounded-full">
-                  ${data.price}/hr
-                </span>
-              </div>
-
-              {/* BODY */}
-              <div className="p-4 space-y-2">
-                <h2 className="text-sm font-medium text-white">{data.sportName}</h2>
-                <p className="text-xs text-slate-400 line-clamp-2">{data.description}</p>
-                <Link href={`/facilities/${data._id}`}>
-                  <button className="mt-2 w-full py-2 rounded-lg border border-teal-500/30 
-                  text-teal-400 text-xs font-medium hover:bg-teal-500/10 transition-all">
-                    View facility →
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <CardDesign key={data._id} data={data} /> // ✅ props দিয়ে পাঠাচ্ছে
           ))}
         </div>
       )}
@@ -127,4 +85,4 @@ const CardDesign = () => {
   );
 };
 
-export default CardDesign;
+export default FacilitiesCard;

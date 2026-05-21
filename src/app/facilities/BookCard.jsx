@@ -11,8 +11,6 @@ const BookCard = ({ data }) => {
   const userInfo = session?.user;
   console.log(userInfo)
 
-  const {data:token}=  authClient.token()
-  console.log(token)
 
   const BookingHandler = async (e) => {
     e.preventDefault();
@@ -37,7 +35,7 @@ const BookCard = ({ data }) => {
       
       headers: {
         "content-type": "application/json",
-         authorization:`Bearer ${token?.token}`
+       
       },
       body: JSON.stringify(booking),
     });
@@ -67,7 +65,7 @@ const BookCard = ({ data }) => {
 
       {/* FORM */}
       <form onSubmit={BookingHandler} className="space-y-6">
-        {/* FACILITY */}
+        
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-300">
             Facility Name

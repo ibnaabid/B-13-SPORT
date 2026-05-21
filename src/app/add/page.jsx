@@ -24,9 +24,9 @@ const AddFacility = () => {
     
 
   const {data:token}= await authClient.token();
-  console.onSubmit(token)
+  console.log(token)
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
     const res= await fetch("http://localhost:5000/add",{
