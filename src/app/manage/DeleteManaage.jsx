@@ -22,7 +22,7 @@ const DeleteManaage = ({data}) => {
 
       
 
-        const res= await fetch (`${process.env.SERVER_URL}/manage/${data?._id}`,{
+        const res= await fetch (`${process.env.NEXT_PUBLIC_SERVER_URL}/manage/${data?._id}`,{
             method:"DELETE",
             headers:{
               authorization: `Bearer ${token?.token}`

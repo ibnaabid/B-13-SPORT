@@ -11,11 +11,13 @@ const FacilitiesCard = () => {
 
   useEffect(() => {
     const loadFacilities = async () => {
+      console.log(process.env.NEXT_PUBLIC_SERVER_URL)
       try {
         const res = await fetch(
-          `${process.env.SERVER_URL}/facilities?search=${search}&sport=${sport}`
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/facilities?search=${search}&sport=${sport}`
         );
         const datas = await res.json();
+        console.log(datas)
         setFacilities(Array.isArray(datas) ? datas : []);
       } catch (error) {
         console.error(error);

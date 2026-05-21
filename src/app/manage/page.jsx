@@ -7,7 +7,7 @@ const ManageFacility = async() => {
     // const token = await auth.api.getToken();
     // console.log(token)
 
-      const res = await fetch (`${process.env.SERVER_URL}/facilities`,{
+      const res = await fetch (`${process.env.NEXT_PUBLIC_SERVER_URL}/facilities`,{
         cache:"no-store",
         // headers:{
         //      authorization:`Bearer ${token?.token}`

@@ -13,7 +13,7 @@ const DynamicView = async ({ params }) => {
   });
 
   console.log(token)
-  const res = await fetch(`${process.env.SERVER_URL}/add/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/add/${id}`, {
     cache: "no-store",
     headers:{
       authorization: `Bearer ${token}`

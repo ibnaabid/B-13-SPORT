@@ -14,7 +14,7 @@ const DeleteBnt = ({data}) => {
 
       const {data:token} = await authClient.token()
 
-        const res= await fetch (`${process.env.SERVER_URL}/booking/${data?._id}`,{
+        const res= await fetch (`${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${data?._id}`,{
             method:"DELETE",
             headers:{
               authorization: `Bearer ${token}`

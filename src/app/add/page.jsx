@@ -29,7 +29,7 @@ const AddFacility = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
 
-    const res= await fetch(`${process.env.SERVER_URL}/add`,{
+    const res= await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/add`,{
         method:"POST",
         headers:{
             "content-type":"application/json",
