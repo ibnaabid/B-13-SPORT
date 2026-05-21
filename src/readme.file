@@ -3,8 +3,6 @@
 ## Purpose
 A full-stack sports facility booking platform where users can search, filter, and book sports facilities.
 
-## Live URL
-https://your-live-site.vercel.app
 
 ## Features
 - User authentication (JWT)
@@ -21,7 +19,7 @@ https://your-live-site.vercel.app
 - next
 - react
 - tailwindcss
-- axios
+
 - react-hot-toast
 
 ### Server
@@ -29,5 +27,5 @@ https://your-live-site.vercel.app
 - mongodb
 - cors
 - jsonwebtoken
-- cookie-parser
+
 - dotenv
