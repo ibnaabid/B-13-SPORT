@@ -32,9 +32,12 @@ const BookCard = ({ data }) => {
       userimage: userInfo?.image || "user Image",
       useremail: userInfo?.email,
       facilityName: data?.sportName,
+      facilityImage: data?.imageUrl,
       price: data?.price,
     };
 
+    console.log(booking)
+    
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`, {
       method: "POST",
       headers: {
