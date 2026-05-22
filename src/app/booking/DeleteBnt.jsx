@@ -47,7 +47,7 @@ const DeleteBnt = ({data}) => {
             <AlertDialog.Body>
               <p>
                 This will permanently Canceled <strong>My Awesome booking</strong> and all of its
-                data. This action cannot be undone.
+                data, This action cannot be undone.
               </p>
             </AlertDialog.Body>
             <AlertDialog.Footer>
