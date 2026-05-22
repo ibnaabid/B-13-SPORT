@@ -69,7 +69,7 @@ const BookCard = ({ data }) => {
       <form onSubmit={BookingHandler} className="space-y-6">
 
         <div>
-          <label className="mb-2 block text-sm font-medium text-gray-300">
+          <label className="mb-2 block text-sm font-bold text-gray-300">
             Facility Name
           </label>
           <Input
